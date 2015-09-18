@@ -18,3 +18,15 @@ create_table :users do |t|
       t.string :first_name
       t.string :last_name
       t.integer :age, default: 0
+
+ create_table :addresses do |t|
+      t.string :user_id
+      t.string :street_name
+      t.string :city
+      t.string :state
+      t.string :zip
+
+      create_table :items do |t|
+      t.string :name, null: false
+      t.string :price, default: 0
+      t.string :description
