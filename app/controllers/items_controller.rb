@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   def index
+    items = Item.all
+    render json: courses.to_json, status: 200
   end
 
   def show

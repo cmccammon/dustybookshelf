@@ -1,5 +1,7 @@
 class AddressesController < ApplicationController
   def index
+    addresses = Adress.all
+    render json: courses.to_json, status: 200
   end
 
   def show
