@@ -16,10 +16,9 @@ class AddressesController < ApplicationController
 
   def create
     if params[:street_name].nil? || params[:street_name].empty?
-      err_msg = "The 'message' parameter was empty or not found"
+      err_msg = "The 'street_name' parameter was empty or not found"
       render json: { error_msg: err_msg }.to_json, status: 422
     else
-      # tweet = Tweet.create(message: params[:message])
       address = Address.new
       address.street_name = params[:street_name]
       address.city = params[:city]
@@ -32,8 +31,26 @@ class AddressesController < ApplicationController
   end
 
   def update
+    if address.exists?(params[:id])
+      address = Address.find(params[:id])
+      address.street_name = params[:street_name]
+      address.city = params[:city]
+      address.state = params[:state]
+      address.zip = params[:zip]
+      address.save
+      render json: address.to_json, status: 200
+    else
+      render json: { error_msg: 'Record Not Found!', id: params[:id] }.to_json, status: 404
+    end
   end
 
   def destroy
+    if Address.exists?(params[:id])
+      address = Address.find(params[:id])
+      address.destroy
+      render json: { message: "Address record Deleted Successfully." }, status: 200
+    else
+      render json: { error_msg: 'Record Not Found!', id: params[:id] }.to_json, status: 404
+    end
   end
 end

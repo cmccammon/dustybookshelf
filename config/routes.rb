@@ -1,43 +1,27 @@
 Rails.application.routes.draw do
-  get 'addresses/index'
+  get    '/addresses',     to: 'addresses#index'
+  get    '/addresses/:id', to: 'addresses#show'
+  post   '/addresses',     to: 'addresses#create'
+  put    '/addresses/:id', to: 'addresses#update'
+  delete '/addresses/:id', to: 'addresses#destroy'
 
-  get 'addresses/show'
+  get    '/orders',     to: 'orders#index'
+  get    '/orders/:id', to: 'orders#show'
+  post   '/orders',     to: 'orders#create'
+  put    '/orders/:id', to: 'orders#update'
+  delete '/orders/:id', to: 'orders#destroy'
 
-  get 'addresses/create'
+  get    '/items',     to: 'items#index'
+  get    '/items/:id', to: 'items#show'
+  post   '/items',     to: 'items#create'
+  put    '/items/:id', to: 'items#update'
+  delete '/items/:id', to: 'items#destroy'
 
-  get 'addresses/update'
-
-  get 'addresses/destroy'
-
-  get 'orders/index'
-
-  get 'orders/show'
-
-  get 'orders/create'
-
-  get 'orders/update'
-
-  get 'orders/destroy'
-
-  get 'items/index'
-
-  get 'items/show'
-
-  get 'items/create'
-
-  get 'items/update'
-
-  get 'items/destroy'
-
-  get 'users/index'
-
-  get 'users/show'
-
-  get 'users/create'
-
-  get 'users/update'
-
-  get 'users/destroy'
+  get    '/users',     to: 'users#index'
+  get    '/users/:id', to: 'users#show'
+  post   '/users',     to: 'users#create'
+  put    '/users/:id', to: 'users#update'
+  delete '/users/:id', to: 'users#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
