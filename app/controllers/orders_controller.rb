@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   def index
     orders = Order.all
-    render json: courses.to_json, status: 200
+    render json: orders.to_json, status: 200
   end
 
   def show

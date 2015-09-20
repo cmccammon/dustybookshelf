@@ -1,7 +1,7 @@
 class AddressesController < ApplicationController
   def index
-    addresses = Adress.all
-    render json: adress.to_json, status: 200
+    addresses = Address.all
+    render json: addresses.to_json, status: 200
   end
 
   def show
